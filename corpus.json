@@ -1,33 +1,33 @@
 {
-  affirm: [
-    'Yes!',
-    'Yes',
-    'Yep',
-    'Ya',
-    'Yip'
+  "affirm": [
+    "Yes!",
+    "Yes",
+    "Yep",
+    "Ya",
+    "Yip"
   ],
-  deny: [
-    'No',
-    'Nope',
-    'Hello no',
-    'Nah',
-    'No Thanks',
-    'nopeeeeee',
-    'nuh uh'
+  "deny": [
+    "No",
+    "Nope",
+    "Hello no",
+    "Nah",
+    "No Thanks",
+    "nopeeeeee",
+    "nuh uh"
   ],
-  inform: [
-    'What',
-    'Who',
-    'Where',
-    'When',
-    'Did',
-    'How',
+  "inform": [
+    "What",
+    "Who",
+    "Where",
+    "When",
+    "Did",
+    "How",
   ],
-  greet: [
-    'Hi',
-    'Hey',
-    'Hello',
-    'Hiya',
-    'yo'
+  "greet": [
+    "Hi",
+    "Hey",
+    "Hello",
+    "Hiya",
+    "yo"
   ]
 };
