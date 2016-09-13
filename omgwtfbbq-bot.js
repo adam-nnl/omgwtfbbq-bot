@@ -20,7 +20,7 @@ var bot = controller.spawn({
 //list for EVERYTHING, run message test through natural NLP to filter down to commands? or something? accept/deny/intent/request?
 controller.hears('','ambient,direct_message,direct_mention,mention',function(bot,message) {  
     var msg = message.text;
-    natural.BayesClassifier.load('corpus.json', null, function(err, classifier) {
+    natural.LogisticRegressionClassifier.load('corpus.json', null, function(err, classifier) {
         bot.reply(message, classifier.classify(msg));
     });    
 })
