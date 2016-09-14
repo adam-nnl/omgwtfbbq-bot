@@ -21,7 +21,7 @@ var bot = controller.spawn({
 controller.hears('','ambient,direct_message,direct_mention,mention',function(bot,message) {
     this.classifier = new natural.LogisticRegressionClassifier();
     var msg = message.text;
-    classifier.load('corpus.json', null, function(err, classifier) {
+    this.classifier.load('corpus.json', null, function(err, classifier) {
         bot.reply(message, classifier.classify(msg));
     });    
 })
