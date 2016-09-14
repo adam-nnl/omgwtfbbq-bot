@@ -7,11 +7,7 @@ if (!process.env.token) {
 
 var Botkit = require('./lib/Botkit.js');
 
-var natural = require('natural'),
-  classifier = new natural.BayesClassifier();
-natural.BayesClassifier.load('corpus.json', null, function(err, classifier) {
-    console.log(classifier.classify('testing'));
-});
+var speak = require("speakeasy-nlp");
 
 var controller = Botkit.slackbot({
     debug: true
@@ -24,7 +20,24 @@ var bot = controller.spawn({
 
 //list for EVERYTHING, run message test through natural NLP to filter down to commands? or something? accept/deny/intent/request?
 controller.hears('','ambient,direct_message,direct_mention,mention',function(bot,message) {
-bot.reply(message, 'Insert NLP magic here.');
+// Analyze sentences at a basic level
+// ------------------------------------- //
+speak.classify("What is your name?")             //=> { action: "what", owner: "listener", subject: "name" }
+speak.classify("Do you know what time it is?")   //=> { action: "what", owner: "it", subject: "time" }
+
+// Sentiment analysis
+// ------------------------------------- //
+speak.sentiment.negativity("I hate your guts")   //=> { score: 1, words: [hate] }
+speak.sentiment.positivity("I love you")         //=> { score: 1, words: [love] }
+
+speak.sentiment.analyze("I love you, but you smell something aweful")  
+// (Negative scores dictate a stronger influence of negative words)
+//=> { score: -1, positive: { ... }, negative: { ... } }
+
+// Closest word
+// ------------------------------------- //
+speak.closest("node", ["foo", "nodejs", "baz"])     //=> "nodejs"        
+        //bot.reply(message, 'Insert NLP magic here.');
         //bot.reply(message, classifier.classify(msg));
    
 });
