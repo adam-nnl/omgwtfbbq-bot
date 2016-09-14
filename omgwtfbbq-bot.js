@@ -6,7 +6,7 @@ if (!process.env.token) {
 }
 
 var Botkit = require('./lib/Botkit.js');
-var natural = require('natural');
+//var natural = require('natural');
 
 var controller = Botkit.slackbot({
     debug: true
