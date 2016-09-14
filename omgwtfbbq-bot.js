@@ -8,10 +8,9 @@ if (!process.env.token) {
 var Botkit = require('./lib/Botkit.js');
 
 var natural = require('natural'),
-  classifier = new natural.BayesClassifier();
-natural.BayesClassifier.load('corpus.json', null, function(err, classifier) {
-    console.log(classifier.classify('long SUNW'));
-    console.log(classifier.classify('short SUNW'));
+  this.classifier = new natural.BayesClassifier();
+natural.BayesClassifier.load('corpus.json', null, function(err, this.classifier) {
+    console.log(this.classifier.classify('testing'));
 });    
 
 var controller = Botkit.slackbot({
