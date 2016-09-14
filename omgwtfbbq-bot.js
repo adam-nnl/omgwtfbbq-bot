@@ -8,8 +8,8 @@ if (!process.env.token) {
 var Botkit = require('./lib/Botkit.js');
 
 var natural = require('natural'),
-var classifier = new natural.BayesClassifier();
-natural.classifier.load('corpus.json', null, function(err, classifier) {
+  classifier = new natural.BayesClassifier();
+natural.BayesClassifier.load('corpus.json', null, function(err, classifier) {
     console.log(classifier.classify('long SUNW'));
     console.log(classifier.classify('short SUNW'));
 });    
