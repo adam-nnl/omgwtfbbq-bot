@@ -33,6 +33,7 @@ bot.reply(message, JSON.stringify(speak.classify(message.text)))             //=
 // (Negative scores dictate a stronger influence of negative words)
 //=> { score: -1, positive: { ... }, negative: { ... } }
 bot.reply(message, JSON.stringify(speak.sentiment.analyze(message.text)))  
+natural(bot, message)
 // Closest word
 // ------------------------------------- //
 //speak.closest("node", ["foo", "nodejs", "baz"])     //=> "nodejs"        
@@ -42,3 +43,11 @@ bot.reply(message, JSON.stringify(speak.sentiment.analyze(message.text)))
 
    
 });
+
+function natural(bot, message) {
+    var natural = require('natural'),
+  classifier = new natural.BayesClassifier();
+natural.BayesClassifier.load('corpus.json', null, function(err, classifier) {
+    console.log(classifier.classify('test'));
+});
+}
