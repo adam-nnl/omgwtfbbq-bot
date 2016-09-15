@@ -8,6 +8,7 @@ if (!process.env.token) {
 var Botkit = require('./lib/Botkit.js');
 
 var speak = require("speakeasy-nlp");
+var natural = require('natural');
 
 var controller = Botkit.slackbot({
     debug: true
@@ -34,7 +35,7 @@ bot.reply(message, JSON.stringify(speak.classify(message.text)))             //=
 //=> { score: -1, positive: { ... }, negative: { ... } }
 bot.reply(message, JSON.stringify(speak.sentiment.analyze(message.text)))  
 
-//natural(bot, message)
+naturalProc(bot, message)
 
 // Closest word
 // ------------------------------------- //
@@ -46,11 +47,9 @@ bot.reply(message, JSON.stringify(speak.sentiment.analyze(message.text)))
    
 });
 
-function natural(bot, message) {
-    var natural = require('natural');
+function naturalProc(bot, message) {
     classifier = new natural.BayesClassifier();
-
-    var loadedClassifier = natural.BayesClassifier.load('corpus.json', null, function(err, classifier);
-    console.log(loadedClassifier.classify('test'));
+    //var loadedClassifier = natural.BayesClassifier.load('corpus.json', null, function(err, classifier);
+    //console.log(loadedClassifier.classify('test'));
 
 };
