@@ -29,7 +29,6 @@ bot.reply(message, JSON.stringify(speak.classify(message.text)))             //=
 // ------------------------------------- //
 //speak.sentiment.negativity("I hate your guts")   //=> { score: 1, words: [hate] }
 //speak.sentiment.positivity("I love you")         //=> { score: 1, words: [love] }
-
 //speak.sentiment.analyze("I love you, but you smell something aweful")  
 // (Negative scores dictate a stronger influence of negative words)
 //=> { score: -1, positive: { ... }, negative: { ... } }
@@ -39,5 +38,7 @@ bot.reply(message, JSON.stringify(speak.sentiment.analyze(message.text)))
 //speak.closest("node", ["foo", "nodejs", "baz"])     //=> "nodejs"        
         //bot.reply(message, 'Insert NLP magic here.');
         //bot.reply(message, classifier.classify(msg));
+
+
    
 });
