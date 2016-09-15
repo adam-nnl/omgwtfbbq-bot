@@ -22,21 +22,21 @@ var bot = controller.spawn({
 controller.hears('','ambient,direct_message,direct_mention,mention',function(bot,message) {
 // Analyze sentences at a basic level
 // ------------------------------------- //
-bot.reply(message, JSON.stringify(speak.classify("What is your name?")))             //=> { action: "what", owner: "listener", subject: "name" }
-speak.classify("Do you know what time it is?")   //=> { action: "what", owner: "it", subject: "time" }
+bot.reply(message, JSON.stringify(speak.classify(message.text)))             //=> { action: "what", owner: "listener", subject: "name" }
+//speak.classify("Do you know what time it is?")   //=> { action: "what", owner: "it", subject: "time" }
 
 // Sentiment analysis
 // ------------------------------------- //
-speak.sentiment.negativity("I hate your guts")   //=> { score: 1, words: [hate] }
-speak.sentiment.positivity("I love you")         //=> { score: 1, words: [love] }
+//speak.sentiment.negativity("I hate your guts")   //=> { score: 1, words: [hate] }
+//speak.sentiment.positivity("I love you")         //=> { score: 1, words: [love] }
 
-speak.sentiment.analyze("I love you, but you smell something aweful")  
+//speak.sentiment.analyze("I love you, but you smell something aweful")  
 // (Negative scores dictate a stronger influence of negative words)
 //=> { score: -1, positive: { ... }, negative: { ... } }
 
 // Closest word
 // ------------------------------------- //
-speak.closest("node", ["foo", "nodejs", "baz"])     //=> "nodejs"        
+//speak.closest("node", ["foo", "nodejs", "baz"])     //=> "nodejs"        
         //bot.reply(message, 'Insert NLP magic here.');
         //bot.reply(message, classifier.classify(msg));
    
