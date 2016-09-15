@@ -47,7 +47,8 @@ natural(bot, message)
 function natural(bot, message) {
     var natural = require('natural');
     classifier = new natural.BayesClassifier();
-    this.natural.BayesClassifier.load('corpus.json', null, function(err, classifier) {
-    console.log(classifier.classify('test'));
-});
+
+    var loadedClassifier = natural.BayesClassifier.load('corpus.json', null, function(err, classifier)
+    console.log(loadedClassifier.classify('test'));
+
 };
