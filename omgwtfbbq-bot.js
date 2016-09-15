@@ -22,7 +22,7 @@ var bot = controller.spawn({
 controller.hears('','ambient,direct_message,direct_mention,mention',function(bot,message) {
 // Analyze sentences at a basic level
 // ------------------------------------- //
-bot.reply(message, speak.classify("What is your name?"))             //=> { action: "what", owner: "listener", subject: "name" }
+bot.reply(message, JSON.stringify(speak.classify("What is your name?")))             //=> { action: "what", owner: "listener", subject: "name" }
 speak.classify("Do you know what time it is?")   //=> { action: "what", owner: "it", subject: "time" }
 
 // Sentiment analysis
