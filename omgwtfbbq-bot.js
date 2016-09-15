@@ -33,7 +33,9 @@ bot.reply(message, JSON.stringify(speak.classify(message.text)))             //=
 // (Negative scores dictate a stronger influence of negative words)
 //=> { score: -1, positive: { ... }, negative: { ... } }
 bot.reply(message, JSON.stringify(speak.sentiment.analyze(message.text)))  
-natural(bot, message)
+
+//natural(bot, message)
+
 // Closest word
 // ------------------------------------- //
 //speak.closest("node", ["foo", "nodejs", "baz"])     //=> "nodejs"        
