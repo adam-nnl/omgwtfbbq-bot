@@ -33,7 +33,7 @@ bot.reply(message, JSON.stringify(speak.classify(message.text)))             //=
 //speak.sentiment.analyze("I love you, but you smell something aweful")  
 // (Negative scores dictate a stronger influence of negative words)
 //=> { score: -1, positive: { ... }, negative: { ... } }
-
+bot.reply(message, JSON.stringify(speak.sentiment.analyze(message.text)))  
 // Closest word
 // ------------------------------------- //
 //speak.closest("node", ["foo", "nodejs", "baz"])     //=> "nodejs"        
