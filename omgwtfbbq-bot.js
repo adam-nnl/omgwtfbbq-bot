@@ -8,7 +8,7 @@ if (!process.env.token) {
 var Botkit = require('./lib/Botkit.js');
 
 var speak = require("speakeasy-nlp");
-//var natural = require('natural');
+var natural = require('natural');
 
 var controller = Botkit.slackbot({
     debug: true
@@ -48,9 +48,9 @@ naturalProc(bot, message)
 });
 
 function naturalProc(bot, message) {
-var natural = require('natural'),
+//var natural = require('natural'),
   classifier = new natural.BayesClassifier();
-classifier.load('classifier.json', null, function(err, classifier) {
+classifier.load('corpus.json', null, function(err, classifier) {
     console.log(classifier.classify('long SUNW'));
     console.log(classifier.classify('short SUNW'));
 });
