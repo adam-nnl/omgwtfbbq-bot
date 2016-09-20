@@ -24,8 +24,14 @@ var natural = require('natural'),
 //natural.BayesClassifier.load('corpus.json', null, function(err, classifier) {
 //	console.log(classifier.classify('did the tests pass?'));
 //    });
-    
-var restoredClassifier = natural.BayesClassifier.restore(JSON.parse('corpus2.json'));
+// Define JSON File
+ var fs = require("fs");
+ console.log("\n *STARTING* \n");
+// Get content from file
+ var contents = fs.readFileSync("corpus.json");
+// Define to JSON type
+//var jsonContent = JSON.parse(contents);    
+var restoredClassifier = natural.BayesClassifier.restore(JSON.parse(contents));
 console.log(restoredClassifier.classify('i should sell that'));   
 
 //list for EVERYTHING, run message test through natural NLP to filter down to commands? or something? accept/deny/intent/request?
