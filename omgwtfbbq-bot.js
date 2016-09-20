@@ -21,9 +21,12 @@ var bot = controller.spawn({
 var natural = require('natural'),
     classifier = new natural.BayesClassifier();
 
-natural.BayesClassifier.load('corpus.json', null, function(err, classifier) {
-	console.log(classifier.classify('did the tests pass?'));
-    });
+//natural.BayesClassifier.load('corpus.json', null, function(err, classifier) {
+//	console.log(classifier.classify('did the tests pass?'));
+//    });
+    
+var restoredClassifier = natural.BayesClassifier.restore(JSON.parse(raw));
+console.log(restoredClassifier.classify('i should sell that'));   
 
 //list for EVERYTHING, run message test through natural NLP to filter down to commands? or something? accept/deny/intent/request?
 controller.hears('','ambient,direct_message,direct_mention,mention',function(bot,message) {
