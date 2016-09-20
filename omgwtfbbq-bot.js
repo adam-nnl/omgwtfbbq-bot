@@ -25,7 +25,7 @@ var natural = require('natural'),
 //	console.log(classifier.classify('did the tests pass?'));
 //    });
     
-var restoredClassifier = natural.BayesClassifier.restore(JSON.parse(raw));
+var restoredClassifier = natural.BayesClassifier.restore(JSON.parse('corpus.json'));
 console.log(restoredClassifier.classify('i should sell that'));   
 
 //list for EVERYTHING, run message test through natural NLP to filter down to commands? or something? accept/deny/intent/request?
