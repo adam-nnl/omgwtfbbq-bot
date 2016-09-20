@@ -18,6 +18,12 @@ var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
+var natural = require('natural'),
+    classifier = new natural.BayesClassifier();
+
+natural.BayesClassifier.load('corpus.json', null, function(err, classifier) {
+	console.log(classifier.classify('did the tests pass?'));
+    });
 
 //list for EVERYTHING, run message test through natural NLP to filter down to commands? or something? accept/deny/intent/request?
 controller.hears('','ambient,direct_message,direct_mention,mention',function(bot,message) {
@@ -35,12 +41,7 @@ bot.reply(message, JSON.stringify(speak.classify(message.text)))             //=
 //=> { score: -1, positive: { ... }, negative: { ... } }
 bot.reply(message, JSON.stringify(speak.sentiment.analyze(message.text)))  
 
-var natural = require('natural'),
-    classifier = new natural.BayesClassifier();
 
-natural.BayesClassifier.load('corpus.json', null, function(err, classifier) {
-	console.log(classifier.classify('did the tests pass?'));
-    });
 
 // Closest word
 // ------------------------------------- //
